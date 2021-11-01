@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch연습하기</title>
+    <style>
+        img {display: none;}
+        .active {display: block;}
+    </style>
+</head>
+<body>
+    <input type="text">
+    <button class="btn">확인</button>
+    <p></p>
+
+    <div>
+        <button class="btn" value="img1" onclick="button_click(this.value);">이미지1</button>
+        <button class="btn" value="img2" onclick="button_click(this.value);">이미지2</button>
+        <button class="btn" value="img3" onclick="button_click(this.value);">이미지3</button>
+        <button class="btn" value="img4" onclick="button_click(this.value);">이미지4</button>
+        
+        <img src="img/img01.png" alt="" class="img1">
+        <img src="img/img02.png" alt="" class="img2">
+        <img src="img/img03.png" alt="" class="img3">
+        <img src="img/img04.png" alt="" class="img4">
+    </div>
+
+    <script src="jquery.min.js"></script>
+    <script>
+        $('button').on('click',function(){
+            var user = $('input').val();
+            switch(user) {
+                case '안녕' : $('p').text(user+'하세요')
+                    break;
+                case '반갑' : $('p').text(user+'습니다')
+                    break;
+                case '안녕히' : $('p').text(user+'가세요')
+                    break;
+                case '다음에' : $('p').text(user+'또 오세요')
+            }
+        })
+
+        function button_click(img){
+            switch(img){
+                case 'img1': $('.img1').toggleClass('active'); 
+                    break;
+                case 'img2' : $('.img2').toggleClass('active'); 
+                    break;
+                case 'img3' : $('.img3').toggleClass('active'); 
+                    break;
+                case 'img4' : $('.img4').toggleClass('active'); 
+                    break;
+            }
+        }
+        // 코드 리팩토링 이란? : 기능은 유지하되 남의 코드에 중복적인 부분을 제거하고 깨끗하게 쓰는법 
+        
+    </script>
+</body>
+</html>

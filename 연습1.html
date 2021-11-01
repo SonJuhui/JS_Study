@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+
+        var txt = prompt("가위바위보 해보기")
+        rockScissorPaper(txt);
+
+        //컴퓨터 가위 바위 보 값 구하는 함수
+        function getComputerValue(){
+        var randomNumber = Math.floor(Math.random()*3); // 0, 1, 2 중 하나의 값을 랜덤으로 생성        
+        if(randomNumber == 0){
+            return "가위";
+        }
+        else if(randomNumber == 1){
+            return "바위";
+        }
+        else {
+            return "보";
+            }   
+        }
+
+        //가위 바위 보 값 출력하는 함수
+        function printValues(yourName, txt, computerName, computerValue){
+        console.log(yourName + ": " + txt + ", " + computerName + ": " + computerValue);
+        }
+
+        // 승자를 출력하는 함수
+        function printWinner(name){
+        console.log(name+"의 승리입니다.");
+        }
+
+        // 비겼음을 출력하는 함수
+        function printDraw(){
+        console.log("비겼습니다.");
+        }
+        
+        //메인 게임 함수
+        function rockScissorPaper(txt){
+        if(txt != "가위" && txt != "바위" && txt != "보"){
+            console.log("잘못 입력하셨습니다.");
+            return;
+        }
+
+        var computerName = "컴퓨터";
+        var yourName = "당신";
+
+        var computerValue =  getComputerValue();
+    
+        printValues(yourName, txt, computerName, computerValue);
+
+        if(computerValue=="가위" && txt=="보" || computerValue=="바위" && txt=="가위" || computerValue=="보" && txt=="바위"){
+            printWinner(computerName);
+        }
+        else if(computerValue=="가위" && txt=="바위" || computerValue=="바위" && txt=="보" || computerValue=="보" && txt=="가위"){
+            printWinner(yourName);
+        }
+        else {
+            printDraw();
+        }
+    }
+    </script>
+</body>
+</html>

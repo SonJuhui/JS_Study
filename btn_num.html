@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        결과: <br/>
+        <input type="text" id="testVerifyNum">
+        <button id="testVerifyBtn">확인</button>
+        <p id="testResultBox"></p>
+    </div>
+
+    <script src="jquery.min.js"></script>
+    <script>
+        // input박스에 숫자를 입력하고 버튼을 누르면 입력한 숫자가 짝수인지 홀수인지 판별하여 문구를 출력하기.
+        document.querySelector('#testVerifyBtn').addEventListener('click',function(){
+           math();
+        })
+        
+        //키보드 엔터쳐서 확인버튼 
+        document.addEventListener('keydown',function(e){
+            var keycode = e.keyCode
+            if(keycode == 13){
+                math();
+            }
+        })
+        
+
+        function math(){
+            var userNum = document.querySelector('#testVerifyNum').value;
+            userNum*1
+            //자바스크립 -> string -> int 
+            //userNum*1; 문자열을 숫자열로 변경
+            //useNum +=''; 숫자열을 문자열로 변경
+            var numRegex = /^[0-9]+$/; //숫자
+            if( numRegex.test(userNum)) {
+                document.querySelector('#testResultBox').innerHTML = verifyNum(userNum);
+            }else document.querySelector('#testResultBox').innerHTML = '입력한 값이 숫자가 아닙니다.';
+        } 
+
+        function verifyNum(num){
+            if( num % 2 == 0){
+                return num + ':짝수';
+            } else{
+                return num + ':홀수';
+            }
+        }
+
+        // $('#testVerifyBtn').on('click',function(){
+        //     var userNum = $('testVerifyNum').val();
+        //     var numRegex = /^[0-9]+$/;
+
+        //     if( numRegex.test(userNum)){
+        //         $('#testResultBox').text(verifyNum(userNum));
+        //     }else{
+        //         $('#testResultBox').text('입력한 값이 숫자가 아닙니다.')
+        //     }
+        // })
+
+
+
+    </script>
+</body>
+</html>
