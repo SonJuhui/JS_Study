@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pw찾기</title>
+</head>
+<body>
+    <div>
+        이름 <input type="text" id="uName" />
+    </div>
+    <div>
+        전화번호 <input type="text" id="uNum" />
+    </div>
+    <button type="submit" onclick="number();">확인</button>
+    <p></p>
+</body>
+<script src="jquery.min.js"></script>
+<script>
+    function number(){
+        var uName = $('#uName').val();
+        var uNum = $('#uNum').val();
+        var array;
+        var user = {"name":uName, "phone":uNum}
+        var user1 = '{"name":"가","phone":"1111","pw":"aaaa"}'
+        var user2 = '{"name":"나","phone":"2222","pw":"bbbb"}'
+        var user3 = '{"name":"다","phone":"3333","pw":"cccc"}'
+        var value = ""
+
+        user1 =  JSON.parse(user1);
+        user2 =  JSON.parse(user2);
+        user3 =  JSON.parse(user3);
+
+        array = [user1, user2, user3]
+
+        pwValue();
+        function pwValue(){
+            for(var i=0; i<array.length; i++){
+                if( array[i].name == user.name && array[i].phone == user.phone){
+                    value = array[i].pw;
+                }
+            }
+        }
+
+        if( value !=""){
+            $('p').text("찾으시는 비밀번호는"+value+"입니다.")
+        }else{
+            alert("정보를 다시 입력하세요.")
+            $('p').hide();
+        }
+
+
+    }
+</script>
+</html>
