@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>resize</title>
+    <style>
+        * {margin: 0; padding: 0;}
+        html,body {height: 100%}
+        .box {width: 50px; height: 100%; background-color: gray;}
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        
+        
+    </div>
+  
+   <script src="../js/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            $(window).resize(function(){ /*브라우저가 변했을때*/
+                var win_w = $(window).width() /*윈도우 브라우저의 가로값을 확인*/
+                $('.box').css({width: win_w - 50 })
+            })
+            $(window).resize() /*중요!! 지금 당장 resize를 한번 실행하라는 뜻-실행문 위나 밑에 씀/ 그냥 .resize() 라고 써도 됨*/
+            
+            /*반응형 페이지 만들때 이런식으로 많이 사용함
+            if(win_w < 768){
+                
+                
+            }
+            
+            */
+        })
+    </script>
+</body>
+</html>

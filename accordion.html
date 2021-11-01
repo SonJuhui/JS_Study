@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>accordion</title>
+  <style>
+    *{margin:0; padding: 0;}
+    h1 {font-size:24px; text-align: center; margin: 20px 0 10px;}
+    .list {width: 400px; margin: 0 auto;}
+    .list dt {background-color: #333; color: #ddd; height: 40px; line-height: 40px; padding-left: 20px; border-bottom: 1px solid #777; cursor: pointer;}
+    .list dd {height: 300px; background-color: #ddd; padding: 20px;}
+  </style>
+</head>
+
+<body>
+  <h1>하나씩만 열리는 아코디언형식 리스트</h1>
+    <dl class="list list1">
+      <dt>제목영역1</dt>
+      <dd>내용영역1</dd>
+      <dt>제목영역2</dt>
+      <dd>내용영역2</dd>
+      <dt>제목영역3</dt>
+      <dd>내용영역3</dd>
+      <dt>제목영역3</dt>
+      <dd>내용영역3</dd>
+      <dt>제목영역4</dt>
+      <dd>내용영역5</dd>
+  </dl>
+  
+  
+  <script src="jquery.min.js"></script>
+  <script>
+    // 하나씩 열리는 리스트 - list1
+    $(function(){
+      //1. list1의 첫번째를 제외한 나머지 dd를 보이지 않게 설정
+      $('.list1 dd').hide()
+      $('.list1 dd:first').show()
+
+      /*$('.list1 dd:not(:first)').hide()*/
+
+      //2. list1의 dt를 클릭했을때 해당 dd가 slideDown되어라
+      $('.list1 dt').click(function(){
+        $(this).next().slideDown()
+        //$('dd',this):dt dd -> dt안에있는 dd (자식선택자)
+        //$('+dd',this):dt + dd -> dt뒤에있는 dd (형제선택자)
+       })
+    })
+      
+  </script>
+</body>
+</html>

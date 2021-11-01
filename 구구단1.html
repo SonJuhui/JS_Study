@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>구구단1</title>
+</head>
+<body>
+  <script>
+    /* for(i=1; i<=9; i++){
+      for(j=1; j<=9; j++){
+        document.write(i+' * '+j+' = '+i*j+'<br>')
+        break *1만 표시
+      }
+      document.write('<hr/>')
+      break 1단만 표시
+    */
+    
+    
+    //5단만 표시하고 6단부터는 표시하지 않기
+     /*for(i=1; i<=9; i++){
+      if( i==6 ){break}
+      for(j=1; j<=9; j++){
+        document.write(i+' * '+j+' = '+i*j+'<br>')
+      }
+      document.write('<hr/>')
+      // if( i==5 ){break}
+     }*/
+    
+    //결과값이 20미만인것만 표시하기
+    for(i=1; i<=9; i++){
+      for(j=1; j<=9; j++){
+        if( i*j > 20 ){break}
+        document.write(i+' * '+j+' = '+i*j+'<br>')
+      }
+      document.write('<hr/>') 
+    }
+    
+    //
+    
+    
+    
+    
+  </script>
+</body>
+</html>

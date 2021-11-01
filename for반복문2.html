@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for반복문2</title>
+    <style>
+        * {margin:0; padding:0;}
+        ul,ol,li {list-style: none;}
+        
+        .gallery{
+            width: 572px; /* 143*4 */
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .gallery li{
+            float: left;
+            margin: 10px;
+        }
+        .indi{
+            text-align: center;
+            margin: 10px 0
+        }
+        
+        .indi li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+    </style>
+    
+</head>
+<body>
+    <ul class="gallery">
+        <script>
+        for(i=1; i<=8; i++){
+            document.write('<li><img src="../img/mov'+i+'.jpg" alt=""></li>')
+        }
+        </script>
+        
+    </ul>
+        
+    
+    
+    <script src="../js/jquery-3.5.1.js"></script>
+    <script>
+        //1번 .gallery뒤에 .indi라는 ul을 만든다.
+        //2번 .indi안에 1부터 시작하는 li 8개를 차례대로 삽입한다. 
+        // for문 사용, dom 참고
+        /*$(function(){
+            $('.gallery').after('<ul class="indi">')
+            for(i=1; i<=8; i++){
+                $('.indi').append('<li>'+i+'</li>')
+            }
+        })*/
+        
+        /*//.gallery에 있는 img의 갯수대로 .indi의 li의 갯수 지정하기
+        $(function(){
+            $('.gallery').after('<ul class="indi">')
+            
+            var mov_li = $('.gallery li').length // 개수를 셀때 사용 lenght
+            for(i=1; i<=mov_li; i++){
+                $('.indi').append('<li>'+i+'</li>')
+            }
+        })*/
+        
+        $(function(){
+            /*
+            var title="조이","널 기다리며","귀향" 
+            쉼표의 의미- var안쓰고 지역변수를 여러개만들것이라는 뜻
+            이렇게 하면 오류남 주의!!*/
+            
+            //배열 : 하나의 변수에 데이터를 여러개로 저장할 때 사용
+            var title = new Array("조이","널 기다리며","귀향","주토피아","갓 오브 이집트","스포트라이프","런던","동주")
+            
+            $('.gallery').after('<ul class="indi"></ul>')
+            var mov_li = $('.gallery li').length // 개수를 셀때 사용 lenght
+            for(i=1; i<=mov_li; i++){
+                $('.indi').append('<li>'+i+title[i-1]+'</li>')
+            }
+        })
+    </script>
+</body>
+</html>

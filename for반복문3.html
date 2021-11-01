@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>for반복문3</title>
+</head>
+<body>
+  <ul>
+    <li>엄정화</li>
+    <li>이효리</li>
+    <li>제시</li>
+    <li>화사</li>
+  </ul>
+  
+  <script src="../js/jquery-3.5.1.js"></script>
+  <script>
+    $(function(){
+      //1. li의 글자를 '엄정화님'이라고 변경하기
+      /* $('li:eq(0)').text('엄정화님') */
+      //2. li의 글자를 가져와서 '~님'이라고 변경하기
+      /* var name1 = $('li:eq(0)').text()
+      $('li:eq(0)').text(name1+'님') */
+      //3. 
+      for(i=0; i<=3; i++){
+        var name = $('li').eq(i).text()
+        $('li').eq(i).text( name + '님' )
+      }
+      
+      
+      
+      
+      
+      
+    })
+  </script>
+</body>
+</html>

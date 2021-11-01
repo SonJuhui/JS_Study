@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        아이디 <input type="text" id="uId"/>
+    </div>
+    <div>
+        비밀번호 <input type="password" id="uPw"/>
+    </div>
+    <div>
+        이름 <input type="text" id="uName">
+    </div>
+    <div>
+        전화번호 <input type="text" id="uNum">
+    </div>
+    <button type="submit" id="login" onclick="login();">로그인</button>
+    <button type="submit" id="lost" onclick="lostId();">아이디 찾기</button>
+    <button type="submit" id="lost" onclick="lostPw();">비밀번호 찾기</button>
+    <p></p>
+
+    <script src="jquery.min.js"></script>
+    <script>
+        
+        // 로그인 함수 
+        function login(){
+            var uid = $('#uId').val();
+            var upw = $('#uPw').val();
+            var account1 = '{"id":"aa","pw":"1234"}'
+            var account2 = {"id":uid, "pw":upw};
+            var account_j = JSON.parse(account1);
+            if( account_j.id == account2.id && account_j.pw == account2.pw){
+                alert('로그인되었습니다.')
+            }else{
+                alert('다시 로그인하세요.')
+            }
+        }
+
+        // 비밀번호 찾기 함수 
+        function lostPw(){
+            var uid = $('#uId').val();
+            var upw = $('#uPw').val();
+            var account1 = '{"id":"aa","pw":"1234"}'
+            var account2 = {"id":uid, "pw":upw};
+            var account_j = JSON.parse(account1);
+            if( account_j.id == account2.id ){
+                $('p').text('찾으시는 비밀번호는'+account_j.pw+'입니다.')
+            }else{
+                alert('아이디를 다시 입력해주세요.')
+            }
+
+        }
+
+        //아아디 찾기 함수
+        function lostId(){
+            var uid = $('#uId').val();
+            var upw = $('#uPw').val();
+            var uName = $('#uName').val();
+            var uNum = $('#uNum').val();
+            var flag = false;
+            var array;
+            var value = "";
+            var account1 = '{"id":"aa","pw":"1234", "name":"손주희", "phone":"01012341234"}'
+            var account2 = {"id":uid, "pw":upw, "name":uName, "phone":uNum};
+            var account3 = '{"id":"bb","pw":"11", "name":"가", "phone":"1111"}'
+            var account4 = '{"id":"cc","pw":"22", "name":"나", "phone":"2222"}'
+            var account5 = '{"id":"dd","pw":"33", "name":"다", "phone":"3333"}'
+
+            account1 =  JSON.parse(account1);
+            account3 =  JSON.parse(account3);
+            account4 =  JSON.parse(account4);
+            account5 =  JSON.parse(account5);
+
+            array = [account1, account3, account4, account5]
+
+            // if( account_j.name == account2.name && account_j.phone == account2.phone ){
+            //     $('p').text('찾으시는 d는'+account_j.pw+'입니다.')
+            // }else{
+            //     alert('아이디를 다시 입력해주세요.')
+            // }
+
+            checkValue();
+            function checkValue(){
+                for(var i=0; i<4; i++){                
+                    if( array[i].name == account2.name && array[i].phone == account2.phone){                    
+                        value = array[i].id;                                            
+                    }                    
+                }
+            }
+            if(value != ""){
+                $('p').text('찾으시는 id는'+value+'입니다.')
+            }else{                
+                alert('아이디를 다시 입력해주세요');
+                $('p').hide();
+            }
+        }
+
+    </script>
+</body>
+</html>
