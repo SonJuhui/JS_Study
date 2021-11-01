@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+
+    </ul>
+    
+    <script src="jquery.min.js"></script>
+    <script>
+             var array;
+            var jh = '{ "name":"손주희", "age":25, "gender":"female"}';
+            var cy = '{ "name":"이찬용", "age":30, "gender":"male"}';
+            var sw = '{ "name":"설선화", "age":33, "gender":"female"}';
+            
+            
+            var jh_json = JSON.parse(jh);
+            var cy_json = JSON.parse(cy);
+            var sw_json = JSON.parse(sw);
+            array = [jh_json,cy_json,sw_json]
+            json_test(array);
+
+            console.log(jh_json)
+
+        /*1. 재료를 준비한다.*/
+
+        function json_test(array){    
+            var num = prompt("사번을 입력하세요")
+            num *=1;
+            switch(num){
+            case 1111:
+                $('ul').append('<li>'+jh_json.name+'</li>')
+                $('ul').append('<li>'+jh_json.age+'</li>')
+                $('ul').append('<li>'+jh_json.gender+'</li>')
+                break;
+            case 2222:                    
+                    $('ul').append('<li>'+array[1].name+'</li>')
+                    $('ul').append('<li>'+array[1].age+'</li>')
+                    $('ul').append('<li>'+array[1].gender+'</li>')
+                    break;
+            case 3333:
+                    $('ul').append('<li>'+array[2].name+'</li>')
+                    $('ul').append('<li>'+array[2].age+'</li>')
+                    $('ul').append('<li>'+array[2].gender+'</li>')
+                    break;
+
+            }
+        }
+    </script>
+
+    
+</body>
+</html>
