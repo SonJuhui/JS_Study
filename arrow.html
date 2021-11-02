@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrow함수</title>
+</head>
+<body>
+    <script>
+        arrow1();
+
+        function arrow1 (){
+            console.log("일반함수")
+        }
+
+        var hi = "안녕하세요"
+        arrow2(hi);
+
+        function arrow2(hi){
+            console.log(hi)
+        }
+        
+        var arrow3 = function(){
+            return "안녕하세요";
+        }
+
+        console.log(arrow3());
+        console.log(arrow3());
+
+        var arrow4 = () => {
+            return "안녕";
+        }
+        console.log(arrow4);
+
+        var 두배만들기 = x => {return x * 2}
+        console.log(두배만들기(4)); // x에 4를 대입
+
+        var 곱하기 = (x,y) => {return x*y}
+        console.log(곱하기(3,4));
+
+        var obj = {
+            fnc : function(){console.log('asdasd')},
+            name : "손주희"
+              
+        }
+        obj.fnc();
+        console.log(obj.name);
+
+        var 사람 = {
+            name : "손흥민"
+        }
+
+        var sayHi = () => {
+            return "안녕 나는 ";
+        }
+
+        var 사람2 = {
+            name : "손흥민",
+            sayHi : () => {
+                console.log('안녕 나는' + this.name)
+            }
+        }
+        사람2.sayHi();
+
+        //for문
+        var 자료 = {
+            data : [1,2,3,4,5],
+            전부더하기 :function(){
+            var a =0;
+            //let a_data  = this.data;            
+            for(let i=0; i<this.data.length; i++){
+                a= a + this.data[i];
+            }
+            console.log(a);
+          }
+        }                            
+        자료.전부더하기();
+
+        //forEach문
+        var 자료 = {
+            data : [1,2,3,4,5],
+            전부더하기 :function(){
+            var a =0;
+            this.data.forEach(function(i){
+                a= a+i;
+            });
+            console.log(a);
+          }
+        }                            
+        자료.전부더하기();
+
+        
+
+        
+
+      
+
+    </script>
+</body>
+</html>
